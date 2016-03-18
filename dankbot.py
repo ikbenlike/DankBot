@@ -4,6 +4,7 @@ import subprocess
 import sys
 import os
 import asyncio
+import random
 
 inEmail = input("email: ")
 inPassword = input("password: ")
@@ -12,8 +13,10 @@ os.system('clear')
 discord.opus.load_opus
 client = discord.Client()
 
-prefix = "$"
+ownerID = "125422419736395777"
+prefix = "="
 player = ""
+#memeList = open("dank.txt", "r")
 
 @client.event
 async def on_ready():
@@ -28,6 +31,7 @@ async def on_ready():
 async def on_message(message):
     global vClient
     global player
+    global prefix
     if message.content.startswith(prefix + "voice"):
         input_ = message.content
         input_.split(" ")
@@ -276,10 +280,29 @@ async def on_message(message):
                 if player.is_playing() == False:
                     player.stop()
 
+    if message.content.startswith(prefix + "meme"):
+        memeList = open("dank.txt", "r")
+        memeLines = memeList.readlines()
+        memeToSend = random.choice(memeLines)
+        await client.send_message(message.channel, memeToSend)
+        memeList.close()
+
     if message.content.startswith(prefix + "logout"):
         player.stop()
         await vClient.disconnect()
         await client.logout()
+
+    if message.content.startswith(prefix + "prefix"):
+        if message.author.id == ownerID:
+            input_ = message.content
+            input_.split(" ")
+            args = input_.split(" ")[1:]
+            setPrefixTo = args[0]
+            prefix = setPrefixTo
+            await client.send_message(message.channel, client.user.name + "'s prefix has changed to " + setPrefixTo)
+        else:
+            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+
 
 
 
