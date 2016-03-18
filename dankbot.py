@@ -41,13 +41,21 @@ async def on_message(message):
         print(connectChannel)
 
         if vcommand == "connect":
-            vChannel = discord.utils.find(lambda m: m.name == (" ".join(connectChannel)), client.get_all_channels())
-            vClient = await client.join_voice_channel(vChannel)
-            player = vClient.create_ffmpeg_player("empty.wav")
-            player.start()
+            if message.author.id == ownerID:
+                vChannel = discord.utils.find(lambda m: m.name == (" ".join(connectChannel)), client.get_all_channels())
+                vClient = await client.join_voice_channel(vChannel)
+                player = vClient.create_ffmpeg_player("empty.wav")
+                player.start()
+            else:
+                await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+
 
         elif vcommand == "disconnect":
-            await vClient.disconnect()
+            if message.author.id == ownerID:
+                await vClient.disconnect()
+            else:
+                await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+
 
         elif vcommand == "play":
             trackToPlay = args[1]
@@ -215,7 +223,7 @@ async def on_message(message):
                     player.stop()
             if trackToPlay == "small-loan":
                 player.stop()
-                player = vClient.create_ffmpeg_player("a-small-loan-of-a-million-dollars.mp3")
+                player = vClient.create_ffmpeg_player("small-loan-of-a-million-dollars.mp3")
                 player.start()
                 if player.is_playing() == False:
                     player.stop()
@@ -288,9 +296,13 @@ async def on_message(message):
         memeList.close()
 
     if message.content.startswith(prefix + "logout"):
-        player.stop()
-        await vClient.disconnect()
-        await client.logout()
+        if message.author.id == ownerID:
+            player.stop()
+            await vClient.disconnect()
+            await client.logout()
+        else:
+            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+
 
     if message.content.startswith(prefix + "prefix"):
         if message.author.id == ownerID:
