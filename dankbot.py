@@ -14,7 +14,9 @@ discord.opus.load_opus
 client = discord.Client()
 
 ownerID = "125422419736395777"
-prefix = "="
+with open("config/prefix.txt") as myfile:
+    prefix=myfile.read().replace('\n', '')
+#prefix = open("config/prefix.txt", "r")
 player = ""
 #memeList = open("dank.txt", "r")
 
@@ -287,6 +289,12 @@ async def on_message(message):
                 player.start()
                 if player.is_playing() == False:
                     player.stop()
+            if trackToPlay == "im-blue":
+                player.stop()
+                player = vClient.create_ffmpeg_player("im-blue.mp3")
+                player.start()
+                if player.is_playing() == False:
+                    player.stop()
 
     if message.content.startswith(prefix + "meme"):
         memeList = open("dank.txt", "r")
@@ -310,7 +318,11 @@ async def on_message(message):
             input_.split(" ")
             args = input_.split(" ")[1:]
             setPrefixTo = args[0]
-            prefix = setPrefixTo
+            prefixFile = open("config/prefix.txt", "w")
+            prefixFile.write(setPrefixTo)
+            prefixFile.close()
+            with open("config/prefix.txt") as myfile:
+                prefix=myfile.read().replace('\n', '')
             await client.send_message(message.channel, client.user.name + "'s prefix has changed to " + setPrefixTo)
         else:
             await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
