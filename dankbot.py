@@ -8,7 +8,10 @@ import random
 
 inEmail = input("email: ")
 inPassword = input("password: ")
-os.system('clear')
+if os.name == "nt":
+	os.system("cls")
+elif os.name == "posix":
+	os.system('clear')
 
 discord.opus.load_opus
 client = discord.Client()
