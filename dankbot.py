@@ -82,243 +82,243 @@ async def on_message(message):
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "mlg-k":
+			elif trackToPlay == "mlg-k":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/Pyrocynical_-_K.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "long-k":
+			elif trackToPlay == "long-k":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/Pyrocynical_-_Kkkkk.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "hmmm":
+			elif trackToPlay == "hmmm":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/Pyrocynical_ft._Disappointed_dad_-_HM_HMMM.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "arrow":
+			elif trackToPlay == "arrow":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/arrow-to-the-knee.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "airhorn":
+			elif trackToPlay == "airhorn":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/airhorn-mgl.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "alluha-akbar":
+			elif trackToPlay == "alluha-akbar":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/alluha-ackbar.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "combo-breaker":
+			elif trackToPlay == "combo-breaker":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/combo-breaker.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "damn-son":
+			elif trackToPlay == "damn-son":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/damn-son-whered-you-find-this.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "sandstorm":
+			elif trackToPlay == "sandstorm":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/darude-sandstorm.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "barrel-roll":
+			elif trackToPlay == "barrel-roll":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/do-a-barrel-rol.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "dun-dun-dun":
+			elif trackToPlay == "dun-dun-dun":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/dun-dun-dun.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "fatality":
+			elif trackToPlay == "fatality":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/fatality.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "get-noscoped":
+			elif trackToPlay == "get-noscoped":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/get-noscoped.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "hasta-la-vista":
+			elif trackToPlay == "hasta-la-vista":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/hasta-la-vista.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "hax":
+			elif trackToPlay == "hax":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/hax.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "headshot":
+			elif trackToPlay == "headshot":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/headshot.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "hitmarker":
+			elif trackToPlay == "hitmarker":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/hitmarker.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "inception":
+			elif trackToPlay == "inception":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/inception-horn.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "its-a-trap":
+			elif trackToPlay == "its-a-trap":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/its-a-trap.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "9000":
+			elif trackToPlay == "9000":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/its-over-9000.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "its-time-to-stop":
+			elif trackToPlay == "its-time-to-stop":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/its-time-to-stop.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "john-cena":
+			elif trackToPlay == "john-cena":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/john-cena.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "kazoo":
+			elif trackToPlay == "kazoo":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/kazoo-kid-trap-remix.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "here-we-go":
+			elif trackToPlay == "here-we-go":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/mario-here-we-go.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "jeff":
+			elif trackToPlay == "jeff":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/my-name-is-jeff.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "rickroll":
+			elif trackToPlay == "rickroll":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/rickroll.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "small-loan":
+			elif trackToPlay == "small-loan":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/small-loan-of-a-million-dollars.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "weed":
+			elif trackToPlay == "weed":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/smoke-weed-everyday.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "surprise":
+			elif trackToPlay == "surprise":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/surprise-motherfucker.wav")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "tadaah":
+			elif trackToPlay == "tadaah":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/tadaah.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "racist":
+			elif trackToPlay == "racist":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/thats-racist.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "sparta":
+			elif trackToPlay == "sparta":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/this-is-sparta.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "thomas":
+			elif trackToPlay == "thomas":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/thomas-tank-engine.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "what-is-love":
+			elif trackToPlay == "what-is-love":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/what-is-love-haddaway.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "what-is-this":
+			elif trackToPlay == "what-is-this":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/what-is-this.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "wtf":
+			elif trackToPlay == "wtf":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/wtf.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "you-shall-not-pass":
+			elif trackToPlay == "you-shall-not-pass":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/you-shall-not-pass.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
-			if trackToPlay == "im-blue":
+			elif trackToPlay == "im-blue":
 				player.stop()
 				player = vClient.create_ffmpeg_player("sounds/im-blue.mp3")
 				player.start()
 				if player.is_playing() == False:
 					player.stop()
 
-	if message.content.startswith(prefix + "meme"):
+	elif message.content.startswith(prefix + "meme"):
 		memeList = open("config/dank.txt", "r")
 		memeLines = memeList.readlines()
 		memeToSend = random.choice(memeLines)
 		await client.send_message(message.channel, memeToSend)
 		memeList.close()
 
-	if message.content.startswith(prefix + "logout"):
+	elif message.content.startswith(prefix + "logout"):
 		if message.author.id in modIDs:
 			player.stop()
 			await vClient.disconnect()
@@ -327,7 +327,7 @@ async def on_message(message):
 			await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
-	if message.content.startswith(prefix + "prefix"):
+	elif message.content.startswith(prefix + "prefix"):
 		if message.author.id in modIDs:
 			input_ = message.content
 			input_.split(" ")
@@ -343,7 +343,7 @@ async def on_message(message):
 			await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
-	if message.content.startswith(prefix + "game"):
+	elif message.content.startswith(prefix + "game"):
 		if message.author.id in modIDs:
 			input_ = message.content
 			input_.split(" ")
