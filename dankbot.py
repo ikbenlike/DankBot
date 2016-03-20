@@ -27,9 +27,11 @@ client = discord.Client()
 ownerID = "125422419736395777"
 with open("config/prefix.txt") as myfile:
     prefix=myfile.read().replace('\n', '')
-#prefix = open("config/prefix.txt", "r")
+
+modIDList = open("config/mods.txt", "r")
+modIDs = modIDList.read().replace("\n", " ")
+
 player = ""
-#memeList = open("dank.txt", "r")
 
 @client.event
 async def on_ready():
@@ -45,6 +47,8 @@ async def on_message(message):
     global vClient
     global player
     global prefix
+    global modIDs
+    global modIDList
     if message.content.startswith(prefix + "voice"):
         input_ = message.content
         input_.split(" ")
@@ -54,7 +58,7 @@ async def on_message(message):
         print(connectChannel)
 
         if vcommand == "connect":
-            if message.author.id == ownerID:
+            if message.author.id in modIDs:
                 vChannel = discord.utils.find(lambda m: m.name == (" ".join(connectChannel)), client.get_all_channels())
                 vClient = await client.join_voice_channel(vChannel)
                 player = vClient.create_ffmpeg_player("sounds/empty.wav")
@@ -64,7 +68,7 @@ async def on_message(message):
 
 
         elif vcommand == "disconnect":
-            if message.author.id == ownerID:
+            if message.author.id in modIDs:
                 await vClient.disconnect()
             else:
                 await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
@@ -315,7 +319,7 @@ async def on_message(message):
         memeList.close()
 
     if message.content.startswith(prefix + "logout"):
-        if message.author.id == ownerID:
+        if message.author.id in modIDs:
             player.stop()
             await vClient.disconnect()
             await client.logout()
@@ -324,7 +328,7 @@ async def on_message(message):
 
 
     if message.content.startswith(prefix + "prefix"):
-        if message.author.id == ownerID:
+        if message.author.id in modIDs:
             input_ = message.content
             input_.split(" ")
             args = input_.split(" ")[1:]
@@ -335,6 +339,22 @@ async def on_message(message):
             with open("config/prefix.txt") as myfile:
                 prefix=myfile.read().replace('\n', '')
             await client.send_message(message.channel, client.user.name + "'s prefix has changed to " + setPrefixTo)
+        else:
+            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+
+
+    if message.content.startswith(prefix + "mod"):
+        if message.author.id in modIDs:
+            input_ = message.content
+            input_.split(" ")
+            args = input_.split(" ")[1:]
+            addNewMod = args[0]
+            modIDList.close()
+            modIDList = open("config/mods.txt", "a")
+            modIDList.write(addNewMod)
+            modIDList.close
+            modIDList = open("config/mods.txt", "r")
+            modIDs = modIDList.read().replace("\n", " ")
         else:
             await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
 
