@@ -357,4 +357,11 @@ async def on_message(message):
 			await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
+	if '<@' + client.user.id + '>' in message.content:
+		with open("config/prefix.txt") as myfile:
+			sayPrefix=myfile.read().replace('\n', '')
+		await client.send_message(message.channel, "Hi there! My prefix is " + sayPrefix + ". Type `" + sayPrefix + "commands` to see my commands")
+
+
+
 client.run(inEmail, inPassword)
