@@ -64,14 +64,14 @@ async def on_message(message):
                 player = vClient.create_ffmpeg_player("sounds/empty.wav")
                 player.start()
             else:
-                await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+                await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
         elif vcommand == "disconnect":
             if message.author.id in modIDs:
                 await vClient.disconnect()
             else:
-                await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+                await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
         elif vcommand == "play":
@@ -324,7 +324,7 @@ async def on_message(message):
             await vClient.disconnect()
             await client.logout()
         else:
-            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+            await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
     if message.content.startswith(prefix + "prefix"):
@@ -340,7 +340,7 @@ async def on_message(message):
                 prefix=myfile.read().replace('\n', '')
             await client.send_message(message.channel, client.user.name + "'s prefix has changed to " + setPrefixTo)
         else:
-            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+            await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
     if message.content.startswith(prefix + "mod"):
@@ -356,7 +356,7 @@ async def on_message(message):
             modIDList = open("config/mods.txt", "r")
             modIDs = modIDList.read().replace("\n", " ")
         else:
-            await client.send_message(message.channel, "<@" + message.author.id + "> you don't have permission to do that")
+            await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
 
