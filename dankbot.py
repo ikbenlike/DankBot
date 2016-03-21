@@ -46,7 +46,7 @@ with open("config/prefix.txt") as myfile:
 modIDList = open("config/mods.txt", "r")
 modIDs = modIDList.read().replace("\n", " ")
 
-player = ""
+#player = ""
 
 @client.event
 async def on_ready():
@@ -348,9 +348,11 @@ async def on_message(message):
 	elif message.content.startswith(prefix + "logout"):
 		commandLog(message)
 		if message.author.id in modIDs:
-			player.stop()
-			await vClient.disconnect()
-			client.logout()
+			try:
+				player.stop()
+				await vClient.disconnect()
+			finally:
+				await client.logout()
 		else:
 			await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
