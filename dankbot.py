@@ -6,7 +6,20 @@ import os
 import asyncio
 import random
 
+logFile = open("logs.txt", "a")
+
+tLog = True
+
+def commandLog(message):
+	msgData = message.author.name + " - " + message.author.id + " - " + message.content + "\n"
+	msgData = msgData.replace("\n", "\n        ")
+	if tLog == True:
+		print(msgData)
+	logFile.write(msgData)
+
+
 logInFromFile = False
+
 
 if logInFromFile == False:
 	inEmail = input("email: ")
@@ -21,8 +34,10 @@ elif logInFromFile == True:
 	with open("config/inpassword.txt") as loginpassword:
 		inPassword = loginpassword.read().replace('\n', '')
 
+
 discord.opus.load_opus
 client = discord.Client()
+
 
 ownerID = "125422419736395777"
 with open("config/prefix.txt") as myfile:
@@ -50,12 +65,14 @@ async def on_message(message):
 	global modIDs
 	global modIDList
 	if message.content.startswith(prefix + "voice"):
+		commandLog(message)
 		input_ = message.content
 		input_.split(" ")
 		args = input_.split(" ")[1:]
 		vcommand = args[0]
 		connectChannel = args[1:]
 		print(connectChannel)
+
 
 		if vcommand == "connect":
 			if message.author.id in modIDs:
@@ -311,7 +328,17 @@ async def on_message(message):
 				if player.is_playing() == False:
 					player.stop()
 
+		elif vcommand == "yt":
+			urlToPlay = args[1]
+			try:
+				player.stop()
+			finally:
+				player = await vClient.create_ytdl_player(urlToPlay)
+				player.start()
+
+
 	elif message.content.startswith(prefix + "meme"):
+		commandLog(message)
 		memeList = open("config/dank.txt", "r")
 		memeLines = memeList.readlines()
 		memeToSend = random.choice(memeLines)
@@ -319,6 +346,7 @@ async def on_message(message):
 		memeList.close()
 
 	elif message.content.startswith(prefix + "logout"):
+		commandLog(message)
 		if message.author.id in modIDs:
 			player.stop()
 			await vClient.disconnect()
@@ -328,6 +356,7 @@ async def on_message(message):
 
 
 	elif message.content.startswith(prefix + "prefix"):
+		commandLog(message)
 		if message.author.id in modIDs:
 			input_ = message.content
 			input_.split(" ")
@@ -344,6 +373,7 @@ async def on_message(message):
 
 
 	elif message.content.startswith(prefix + "game"):
+		commandLog(message)
 		if message.author.id in modIDs:
 			input_ = message.content
 			input_.split(" ")
