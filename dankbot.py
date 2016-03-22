@@ -389,6 +389,11 @@ async def on_message(message):
 			await client.send_message(message.channel, message.author.mention + " you don't have permission to do that")
 
 
+	elif message.content.startswith(prefix + "servers"):
+		connectedServers = [server.name for server in client.servers]
+		await client.send_message(message.channel, "```" + ("\n".join(connectedServers)) + "```")
+
+
 	if '<@' + client.user.id + '>' in message.content:
 		with open("config/prefix.txt") as myfile:
 			sayPrefix=myfile.read().replace('\n', '')
