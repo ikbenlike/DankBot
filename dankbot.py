@@ -394,6 +394,14 @@ async def on_message(message):
 		await client.send_message(message.channel, "```" + ("\n".join(connectedServers)) + "```")
 
 
+	elif message.content.startswith(prefix + "invite"):
+		input_ = message.content
+		input_.split(" ")
+		args = input_.split(" ")[1:]
+		inviteToAccept = args[0]
+		await client.accept_invite(inviteToAccept)
+
+
 	if '<@' + client.user.id + '>' in message.content:
 		with open("config/prefix.txt") as myfile:
 			sayPrefix=myfile.read().replace('\n', '')
