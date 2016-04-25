@@ -22,17 +22,14 @@ logInFromFile = False
 
 
 if logInFromFile == False:
-	inEmail = input("email: ")
-	inPassword = input("password: ")
+	inToken = input("token: ")
 	if os.name == "nt":
 		os.system("cls")
 	elif os.name == "posix":
 		os.system('clear')
 elif logInFromFile == True:
-	with open("config/inemail.txt") as loginemail:
-		inEmail = loginemail.read().replace('\n', '')
-	with open("config/inpassword.txt") as loginpassword:
-		inPassword = loginpassword.read().replace('\n', '')
+	with open("config/intoken.txt") as intoken:
+		inToken = intoken.read().replace('\n', '')
 
 
 discord.opus.load_opus
@@ -409,4 +406,4 @@ async def on_message(message):
 
 
 
-client.run(inEmail, inPassword)
+client.run(inToken)
